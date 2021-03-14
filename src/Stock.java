@@ -1,13 +1,22 @@
 import java.util.Random;
 
 public class Stock extends Car{
-    public Stock(int durability, int braking, int acceleration) {
-        super(durability, braking, acceleration, 1450);
+    private boolean protection;
+
+    public Stock(int durability, int acceleration) {
+        super(durability, acceleration, 1450);
+        protection = false;
     }
 
-    @Override
-    public void setMaxSpeed(int newMaxSpeed){
-        int random_maxSpeed = new Random().nextInt(200) + 100;
-        super.setMaxSpeed(random_maxSpeed);
+    public void ProtectionModifier() {
+        Random random = new Random();
+        int r = (random.nextInt(2));
+        if(r==1){
+            protection = true;
+        }
+    }
+
+    public boolean isProtection() {
+        return protection;
     }
 }

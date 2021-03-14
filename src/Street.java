@@ -3,24 +3,25 @@ import java.util.Random;
 public class Street extends Track{
     private int roadWidth; // Shorter width --> Increases chance of collisions
 
-    public Street(int laps, int corners, int material){
-        super(laps, corners, material);
-        this.roadWidth = 10;
+    public Street(int laps, int corners){
+        super(laps, corners);
+        setRoadWidth();
     }
+
     public int getRoadWidth(){
         return roadWidth;
     }
 
-    public double lapLength() {
+    public void setRoadWidth() {
         Random random = new Random();
-        double length = (random.nextInt(700) + 500) / 10.0;
-        System.out.println("Random: " + length);
-        return length;
+        int rW = random.nextInt(14)+12;
+        this.roadWidth = rW;
     }
 
-
-    public void collisionModifier(){
-
+    public int lapLength() {
+        Random random = new Random();
+        int length = random.nextInt(801) + 200; //Creates a straight between 200-1000m.
+        return length;
     }
 
 }

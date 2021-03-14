@@ -3,20 +3,16 @@ import java.util.Random;
 
 public class Track
 {
-    // instance variables - replace the example below with your own
     private int noOfLaps;
     private int corners;
-    private int material;
     private ArrayList lap;
-    private double length;
+    private int length;
 
 
-    public Track(int laps, int corners, int material)
+    public Track(int laps, int corners)
     {
-        // initialise instance variables
         this.noOfLaps = laps;
         this.corners = corners;
-        this.material = material;
         this.lap = new ArrayList();
     }
 
@@ -28,11 +24,11 @@ public class Track
         return lap;
     }
 
-    public double getLength(){
+    public int getLength(){
         return length;
     }
 
-    public void setLength(double nLength){
+    public void setLength(int nLength){
         length = nLength;
     }
 
@@ -40,27 +36,16 @@ public class Track
         return corners;
     }
 
-    public int getMaterial(){
-        return material;
-    }
-
-
-
-    public void VehicleEffect(Vehicle v){
-        int speedModifier = getMaterial()/10;
-        v.setMaxSpeed(v.getMaxSpeed() + v.getMaxSpeed()*speedModifier);
-    }
-
-    public double lapLength(){
+    public int lapLength(){
         Random random = new Random();
-        double straightLength = (random.nextInt(31)+1)/10.0;
-        System.out.println("Random: " + length);
-        return length;
+        int straightLength = (random.nextInt(101)+300); //Track length is between 300-400m.
+        return straightLength;
     }
 
-    public void createLap(double length){
+    public void createLap(int length){
         getLap().add(length);
     }
+
 
 }
 
